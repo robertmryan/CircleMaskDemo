@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,58 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CircleMaskDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample" translatesAutoresizingMaskIntoConstraints="NO" id="7yx-D7-eMJ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Tbk-mQ-BXN" appends="YES" id="g5h-in-fkw"/>
+                                    <outletCollection property="gestureRecognizers" destination="C2k-cX-Cfe" appends="YES" id="ujB-py-92b"/>
+                                    <outletCollection property="gestureRecognizers" destination="oPH-kn-p1v" appends="YES" id="LGd-XB-AGe"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7yx-D7-eMJ" secondAttribute="trailing" id="Lhn-Aq-OGy"/>
+                            <constraint firstItem="7yx-D7-eMJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mIq-H9-fe0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7yx-D7-eMJ" secondAttribute="bottom" id="mu8-3H-hec"/>
+                            <constraint firstItem="7yx-D7-eMJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="xvG-g4-Z4o"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="7yx-D7-eMJ" id="U44-g7-CK4"/>
+                        <outlet property="pan" destination="C2k-cX-Cfe" id="wxz-a1-ZDB"/>
+                        <outlet property="pinch" destination="Tbk-mQ-BXN" id="w99-pd-t9v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="Tbk-mQ-BXN">
+                    <connections>
+                        <action selector="handlePinch:" destination="BYZ-38-t0r" id="jPf-0Y-DzX"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="fws-v7-aco"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="C2k-cX-Cfe">
+                    <connections>
+                        <action selector="handlePan:" destination="BYZ-38-t0r" id="PYw-VS-Men"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="X3E-y1-uQb"/>
+                    </connections>
+                </panGestureRecognizer>
+                <tapGestureRecognizer id="oPH-kn-p1v">
+                    <connections>
+                        <action selector="handleTap:" destination="BYZ-38-t0r" id="NBh-cE-mAu"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="sample" width="2251" height="1500"/>
+    </resources>
 </document>

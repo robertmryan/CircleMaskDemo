@@ -2,7 +2,7 @@
 
 This is an demonstration of updating `CAShapeLayer` mask with gestures in Swift.
 
-This was developed in Objective-C on Xcode 9.3 for iOS 11.3. But, the basic ideas are equally applicable for different versions of Objective-C and iOS versions.
+This was developed in Swift on Xcode 9.3 for iOS 11.3. But, the basic ideas are equally applicable for different versions of Swift and iOS versions.
 
 See https://stackoverflow.com/a/20171129/1271826.
 
@@ -17,4 +17,3 @@ Copyright &copy; 2018 Robert Ryan. All rights reserved.
 --
 
 18 April 2018
-
